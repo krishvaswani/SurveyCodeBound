@@ -1,4 +1,4 @@
-// src/components/Survey.js
+
 import React, { useState, useEffect } from "react";
 import questions from "../data/questions";
 
