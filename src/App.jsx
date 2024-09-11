@@ -1,6 +1,6 @@
-// src/App.js
+
 import React, { useState } from "react";
-import Survey from "./components/Survey";
+import Survey from "./Components/Survey";
 import Welcome from "./Components/Welcome";
 
 const App = () => {
