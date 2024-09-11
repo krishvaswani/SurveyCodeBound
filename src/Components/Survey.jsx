@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import questions from "../Data/Questions";
+import questions from "../Data/Questions.js";
 
 const Survey = ({ onSurveyComplete }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
