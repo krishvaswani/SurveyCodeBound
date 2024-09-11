@@ -1,11 +1,28 @@
+// src/App.js
+import React, { useState } from "react";
+import Survey from "./components/Survey";
+import Welcome from "./Components/Welcome";
 
-import React from "react";
-import Survey from "./Components/Survey";
+const App = () => {
+  const [surveyStarted, setSurveyStarted] = useState(false);
 
-const App = () => (
-  <div className="min-h-screen flex items-center justify-center bg-gray-100">
-    <Survey />
-  </div>
-);
+  const handleStartSurvey = () => {
+    setSurveyStarted(true);
+  };
+
+  const handleSurveyComplete = () => {
+    setSurveyStarted(false);
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      {surveyStarted ? (
+        <Survey onSurveyComplete={handleSurveyComplete} />
+      ) : (
+        <Welcome onStart={handleStartSurvey} />
+      )}
+    </div>
+  );
+};
 
 export default App;

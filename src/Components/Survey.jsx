@@ -1,7 +1,8 @@
-
+// src/components/Survey.js
 import React, { useState, useEffect } from "react";
-import questions from "../Data/Questions"; 
-const Survey = () => {
+import questions from "../data/questions";
+
+const Survey = ({ onSurveyComplete }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState(() => {
     const storedAnswers = localStorage.getItem("surveyAnswers");
@@ -36,10 +37,11 @@ const Survey = () => {
     setCompleted(true);
     localStorage.setItem("surveyStatus", "COMPLETED");
     setShowThanks(true);
+
+    // Show the "Thank You" message for 5 seconds, then trigger the callback to return to the welcome screen
     setTimeout(() => {
       setShowThanks(false);
-      setCurrentQuestionIndex(0);
-      setCompleted(false);
+      onSurveyComplete();
     }, 5000);
   };
 
